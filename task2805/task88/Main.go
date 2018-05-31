@@ -7,7 +7,6 @@ package main
 
 import (
 	"fmt"
-	"strings"
 )
 
 func reverseOrder(number uint32) string{
@@ -19,11 +18,15 @@ func reverseOrder(number uint32) string{
 	return reverse
 }
 func searchThreeInN2(number uint32) bool{
-	str := fmt.Sprint(number*number)
-	if(strings.Contains(str, "3")){
-		return true
-	}
-	return false
+		n := number*number
+		for n>=0 {
+			if n%10 == 3 {
+				return true
+			} else {
+				n/=10
+			}
+		}
+		return false
 }
 
 func main(){
